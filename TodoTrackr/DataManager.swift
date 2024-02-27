@@ -36,14 +36,8 @@ class DataManager: ObservableObject {
         if categories.count == 0 {
             return 0
         }
-        print("Last ID: " + String(categories[categories.count-1].id))
-        for i in categories.indices {
-            print(categories[i].title)
-        }
-        
         return (categories[categories.count-1].id) + Int64(1)
     }
-    
     
     func delete(todo: Todo, from category: Categorie) {
             guard let todos = category.todos as? Set<Todo> else {

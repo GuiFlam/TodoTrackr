@@ -36,23 +36,14 @@ struct NewCategorie: View {
                     .padding(.vertical, 12)
                     .padding(.horizontal, 15)
                     .background(.black.shadow(.drop(color: .white.opacity(0.25), radius: 2)), in: .rect(cornerRadius: 10))
-                
-                
             })
             .padding(.top, 5)
             
             Spacer(minLength: 0)
             
             Button(action: {
-                /*
-                for i in categories.indices {
-                    if(categories[i].title == selectedCategory) {
-                        categories[i].todos.append(Task(title: taskTitle, caption: taskCaption, date: taskDate, tint: taskColor))
-                        
-                    }
-                }
-                 */
                 let id = dataController.getNextCategoryIndex()
+                
                 let categorie = Categorie(context: moc)
                 categorie.id = id
                 categorie.title = categoryTitle

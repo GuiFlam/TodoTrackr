@@ -12,16 +12,14 @@ struct TodoView: View {
     
     @ObservedObject var todo: Todo
     @ObservedObject var category: Categorie
-    @Binding var indexTaskToEdit: Int
+    @Binding var indexTodoToEdit: Int
     @Binding var indexCategoryToEdit: Int
     
-    @Binding var editTask: Bool
+    @Binding var editTodo: Bool
     
     @State private var categoryIndex: Int = 0
     
     @Environment(\.managedObjectContext) var moc
-    
-    //@FetchRequest(entity: Categorie.entity(), sortDescriptors: [NSSortDescriptor(key: "title", ascending: true)]) var categories: FetchedResults<Categorie>
     
     var categories: FetchedResults<Categorie>
     
@@ -39,14 +37,12 @@ struct TodoView: View {
                         .foregroundColor(.white)
                         .onTapGesture {
                             withAnimation(.snappy) {
-                                if let index = (categories[categoryIndex].todos?.allObjects as! [Todo]).firstIndex(where: {$0.id == todo.id}) {
-                                    todo.objectWillChange.send()
-                                    dataController.updateIsCompleted(for: todo)
-                                }
+                                todo.objectWillChange.send()
+                                dataController.updateIsCompleted(for: todo)
+                                
                             }
                         }
                 }
-            
             VStack(alignment: .leading, spacing: 0) {
                 HStack {
                     Text(todo.title ?? "")
@@ -71,7 +67,7 @@ struct TodoView: View {
             }
             .frame(maxWidth: .infinity)
             .padding()
-            .background(Color(hex: todo.tint ?? "").opacity(0.5))
+            .background(Color(hex: todo.tint ?? "").opacity(0.7).brightness(0.15))
             .cornerRadius(20)
             .overlay(
                             RoundedRectangle(cornerRadius: 20)
@@ -81,17 +77,11 @@ struct TodoView: View {
             .contextMenu {
                 
                 Button(action: {
-                    /*
-                    if let index = categories[categoryIndex].tasks.firstIndex(where: { $0.id == todo.id }) {
-                            // Remove the task from the array
-                            self.indexTaskToEdit = index
-                        }
-                    */
                     if let index = (categories[categoryIndex].todos?.allObjects as! [Todo]).firstIndex(where: {$0.title == todo.title}) {
-                        self.indexTaskToEdit = index
+                        self.indexTodoToEdit = index
                         self.indexCategoryToEdit = categoryIndex
                     }
-                    editTask.toggle()
+                    editTodo.toggle()
 
                 }, label: {
                     Label("Edit", systemImage: "pencil")
@@ -100,24 +90,13 @@ struct TodoView: View {
                 Button(action: {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.55) {
                         withAnimation {
-                            /*
-                            if let index = categories[categoryIndex].todos.firstIndex(where: { $0.id == todo.id }) {
-                                    // Remove the task from the array
-                                    categories[categoryIndex].todos.remove(at: index)
-                                }
-                             */
-                            if let index = (categories[categoryIndex].todos?.allObjects as! [Todo]).firstIndex(where: {$0.id == todo.id}) {
-                                dataController.delete(todo: todo, from: categories[categoryIndex])
-                            }
+                            dataController.delete(todo: todo, from: categories[categoryIndex])
                         }
                     }
-                    
-                    
                 }, label: {
                     Label("Delete", systemImage: "trash")
                 })
             }
-             
         }
         .padding(.horizontal)
         .onAppear {
@@ -126,11 +105,8 @@ struct TodoView: View {
                     categoryIndex = index
                 }
         }
-        
     }
-     
 }
-     
 
 #Preview {
     MainView()

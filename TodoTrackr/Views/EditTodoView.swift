@@ -8,19 +8,20 @@
 import SwiftUI
 
 
-struct NewTask: View {
+struct EditTodo: View {
     @Environment(\.dismiss) private var dismiss
-    @State private var taskTitle: String = ""
-    @State private var taskCaption: String = ""
-    @State private var taskDate: Date = .init()
-    @State private var taskColor: String = "#111111"
-    @State private var selectedCategory: String = "LOG100"
     
-    @Environment(\.managedObjectContext) var moc
+    @State private var newTitle: String = ""
+    @State private var newCaption: String = ""
+    @State private var newColor: String = "#000000"
+    @State private var newDate: Date = Date()
+    
+    @Environment(\.managedObjectContext) private var moc
     
     var categories: FetchedResults<Categorie>
     
-    //@FetchRequest(sortDescriptors: []) var categories: FetchedResults<Categorie>
+    @Binding var indexTodoToEdit: Int
+    @Binding var indexCategoryToEdit: Int
     
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
@@ -38,7 +39,7 @@ struct NewTask: View {
                     .font(.caption)
                     .foregroundStyle(.gray)
                 
-                TextField("Title", text: $taskTitle)
+                TextField("Title", text: $newTitle)
                     .padding(.vertical, 12)
                     .padding(.horizontal, 15)
                     .background(.black.shadow(.drop(color: .white.opacity(0.25), radius: 2)), in: .rect(cornerRadius: 10))
@@ -47,19 +48,10 @@ struct NewTask: View {
                     .font(.caption)
                     .foregroundStyle(.gray)
                 
-                TextField("Caption", text: $taskCaption, axis: .vertical)
+                TextField("Caption", text: $newCaption, axis: .vertical)
                     .padding(.vertical, 12)
                     .padding(.horizontal, 15)
                     .background(.black.shadow(.drop(color: .white.opacity(0.25), radius: 2)), in: .rect(cornerRadius: 10))
-                
-                    Picker("Category", selection: $selectedCategory) {
-                        ForEach(categories, id: \.self) { category in
-                            Text(category.title ?? "")
-                                .tag(category.title ?? "")
-                        }
-                    }
-                    .pickerStyle(.wheel)
-                
             })
             .padding(.top, 5)
             
@@ -69,13 +61,12 @@ struct NewTask: View {
                         .font(.caption)
                         .foregroundStyle(.gray)
                     
-                    DatePicker("", selection: $taskDate)
+                    DatePicker("", selection: $newDate)
                         .datePickerStyle(.compact)
                         .scaleEffect(0.9, anchor: .leading)
                 }
                 .padding(.top, 5)
                 .padding(.trailing, -15)
-                
                 
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Task Color")
@@ -94,13 +85,13 @@ struct NewTask: View {
                                 .background(content: {
                                     Circle()
                                         .stroke(lineWidth: 2)
-                                        .opacity(taskColor == color ? 1 : 0)
+                                        .opacity(self.newColor == color ? 1 : 0)
                                 })
                                 .hSpacing(.center)
                                 .contentShape(.rect)
                                 .onTapGesture {
                                     withAnimation(.snappy) {
-                                        self.taskColor = color
+                                        self.newColor = color
                                     }
                                 }
                         }
@@ -111,29 +102,32 @@ struct NewTask: View {
             Spacer(minLength: 0)
             
             Button(action: {
-                for i in categories.indices {
-                    if (categories[i].title ?? "") == selectedCategory {
-                        let newTodo = Todo(context: moc)
-                        newTodo.title = taskTitle
-                        newTodo.caption = taskCaption
-                        newTodo.date = taskDate
-                        newTodo.tint = taskColor
-                        categories[i].addToTodos(newTodo)
-                        try? moc.save()
-                    }
+                withAnimation {
+                    (categories[indexTodoToEdit].todos?.allObjects as! [Todo])[indexTodoToEdit].title = self.newTitle
+                    (categories[indexTodoToEdit].todos?.allObjects as! [Todo])[indexTodoToEdit].caption = self.newCaption
+                    (categories[indexTodoToEdit].todos?.allObjects as! [Todo])[indexTodoToEdit].date = self.newDate
+                    (categories[indexTodoToEdit].todos?.allObjects as! [Todo])[indexTodoToEdit].tint = self.newColor
+                    try? moc.save()
                 }
                 dismiss()
             }, label: {
-                Text("Create Task")
+                Text("Edit Task")
                     .font(.title3)
                     .fontWeight(.semibold)
+                    .foregroundStyle(.black)
                     .hSpacing(.center)
                     .padding(.vertical, 12)
-                    .background(taskColor == "#000000" ? Color(hex:"#111111") : Color(hex: taskColor), in: .rect(cornerRadius: 10))
+                    .background(self.newColor == "#000000" ? .black : Color(hex:self.newColor), in: .rect(cornerRadius: 10))
             })
-            .opacity(taskTitle == "" ? 0.5 : 1)
+            .opacity(self.newTitle == "" ? 0.5 : 1)
         }
         .padding(15)
+        .onAppear {
+            self.newTitle = (categories[indexTodoToEdit].todos?.allObjects as! [Todo])[indexTodoToEdit].title ?? ""
+            self.newDate = (categories[indexTodoToEdit].todos?.allObjects as! [Todo])[indexTodoToEdit].date ?? Date()
+            self.newCaption = (categories[indexTodoToEdit].todos?.allObjects as! [Todo])[indexTodoToEdit].caption ?? ""
+            self.newColor = (categories[indexTodoToEdit].todos?.allObjects as! [Todo])[indexTodoToEdit].tint ?? ""
+        }
     }
 }
 
