@@ -24,21 +24,22 @@ Need to share your task lists or back them up? TodoTrackr has you covered. With 
 
 ## Screenshots
 
-<div style="display: flex; flex-wrap: wrap; justify-content: center;">
-    <div style="text-align: center; margin: 10px;">
-        <img src="Images/main.png" alt="Main Image" width="200">
-        <p>Main View</p>
-    </div>
-    <div style="text-align: center; margin: 10px;">
-        <img src="Images/add.png" alt="Add Image" width="200">
-        <p>Add a Todo</p>
-    </div>
-    <div style="text-align: center; margin: 10px;">
-        <img src="Images/edit.png" alt="Edit Image" width="200">
-        <p>Edit a Todo</p>
-    </div>
-    <div style="text-align: center; margin: 10px;">
-        <img src="Images/json.png" alt="JSON Image" width="200">
-        <p>Files in JSON format</p>
-    </div>
-</div>
+### Main View
+<p align="center">
+  <img src="Images/main.png" alt="Main Image" width="300">
+</p>
+
+### Add A Todo
+<p align="center">
+  <img src="Images/add.png" alt="Add Image" width="300">
+</p>
+
+### Edit A Todo
+<p align="center">
+  <img src="Images/edit.png" alt="Add Image" width="300">
+</p>
+
+### Files converted to JSON
+<p align="center">
+  <img src="Images/json.png" alt="Add Image" width="300">
+</p>
