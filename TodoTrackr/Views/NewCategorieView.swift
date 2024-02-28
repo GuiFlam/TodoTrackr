@@ -61,6 +61,7 @@ struct NewCategorie: View {
                     .hSpacing(.center)
                     .padding(.vertical, 8)
                     .background(Color("TodoColor2"))
+                    .cornerRadius(20)
             })
         }
         .padding(15)
