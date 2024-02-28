@@ -11,8 +11,6 @@ import Foundation
 
 class DataManager: ObservableObject {
     
-    
-    
     let container = NSPersistentContainer(name: "Model")
     init() {
         container.loadPersistentStores { description, error in
@@ -28,6 +26,17 @@ class DataManager: ObservableObject {
             guard let categories = try? container.viewContext.fetch(request) else { return [] }
             return categories
         }
+    }
+    
+    func getTodos(from category: Categorie) -> [Todo] {
+        // Check if the category has todos
+        guard let todos = category.todos as? Set<Todo> else {
+            print("Error: Failed to get todos from category")
+            return []
+        }
+
+        // Return the todos associated with the category
+        return Array(todos)
     }
     
     func getNextCategoryIndex() -> Int64 {

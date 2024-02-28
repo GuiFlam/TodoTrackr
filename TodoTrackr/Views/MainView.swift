@@ -22,6 +22,18 @@ struct MainView: View {
     
     @EnvironmentObject private var dataController: DataManager
     
+    
+    init() {
+        let appear = UINavigationBarAppearance()
+
+        let atters: [NSAttributedString.Key: Any] = [
+            .font: UIFont(name: MyFont.font, size: 40)!
+        ]
+
+        appear.largeTitleTextAttributes = atters
+        UINavigationBar.appearance().standardAppearance = appear
+     }
+    
     var body: some View {
         TabView {
             NavigationStack {
@@ -30,7 +42,7 @@ struct MainView: View {
                         
                         ForEach(categories, id:\.self) { category in
                             Text(category.title ?? "")
-                                .font(.system(size: 24, weight: .semibold))
+                                .font(.custom(MyFont.font, size: 24)).bold()
                                 .padding(.horizontal, 13)
                                 .padding(.top, 20)
                             
@@ -56,12 +68,12 @@ struct MainView: View {
                             Divider()
                         }
                     }
-                    .navigationTitle("Todos")
+                .onAppear {
+                    //dataController.deleteAllObjects(forEntityName: "Categorie")
+                }
+                    .background(Color("BackgroundColor"))
+                    .navigationTitle("TodoTrackr")
                     .toolbar {
-                        
-                        ToolbarItem(placement: .principal, content: {
-                            Text("\((Date()).format("MMM dd, yyyy"))")
-                        })
                         
                         ToolbarItem(placement: .topBarTrailing, content: {
                             Button(action: {
@@ -75,7 +87,7 @@ struct MainView: View {
                                     .foregroundColor(.black)
                             })
                         })
-                    }   
+                    }
                 }
                         
                 .frame(maxHeight: .infinity)
@@ -86,10 +98,15 @@ struct MainView: View {
                 .sheet(isPresented: $editTodo, content: {
                     EditTodo(categories: categories, indexTodoToEdit: $indexTodoToEdit, indexCategoryToEdit: $indexCategoryToEdit)
                         .presentationDetents([.height(400)])
+                        .onAppear {
+                            print(indexCategoryToEdit)
+                            
+                        }
                 })
                 
             
             .searchable(text: $searchText)
+            .font(.custom(MyFont.font, size: 18))
             .tabItem {
                 Image(systemName: "checkmark")
                     .resizable()
@@ -97,42 +114,21 @@ struct MainView: View {
             }
             NavigationStack {
                 
-                List {
-                    ForEach(categories, id: \.self) { category in
-                        Text(category.title ?? "")
-                    }
-                    .onDelete(perform: deleteCategorie)
-                    
-                    Button(action: {
-                        createNewCategory.toggle()
-                    }, label: {
-                        Text("Add Category")
-                            .foregroundStyle(.blue)
-                    })
-                }
-               
-                .sheet(isPresented: $createNewCategory, content: {
-                    NewCategorie()
-                        .presentationDetents([.height(300)])
-                })
-                .navigationTitle("Settings")
+                SettingsView(categories: categories, createNewCategory: $createNewCategory)
+                
                 
             }
+            .background(Color("BackgroundColor"))
             .tabItem {
                 Image(systemName: "gear")
             }
             
         }
         .tint(.white)
+        
        
     }
-    private func deleteCategorie(at offsets: IndexSet) {
-        for index in offsets {
-            let category = categories[index]
-            dataController.deleteCategory(category)
-            try? moc.save()
-        }
-    }
+    
 }
 
 #Preview {

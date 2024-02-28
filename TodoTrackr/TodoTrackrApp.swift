@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct TodoForgeApp: App {
+struct TodoTrackrApp: App {
     @StateObject private var dataManager = DataManager()
     
     var body: some Scene {

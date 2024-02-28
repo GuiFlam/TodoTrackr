@@ -29,10 +29,11 @@ struct NewCategorie: View {
             
             VStack(alignment: .leading, spacing: 8, content: {
                 Text("Category Title")
-                    .font(.caption)
+                    .font(.custom(MyFont.font, size: 12))
                     .foregroundStyle(.gray)
                 
                 TextField("Title", text: $categoryTitle)
+                    .font(.custom(MyFont.font, size: 18))
                     .padding(.vertical, 12)
                     .padding(.horizontal, 15)
                     .background(.black.shadow(.drop(color: .white.opacity(0.25), radius: 2)), in: .rect(cornerRadius: 10))
@@ -55,16 +56,15 @@ struct NewCategorie: View {
                 dismiss()
             }, label: {
                 Text("Create Category")
-                    .font(.title3)
-                    .fontWeight(.semibold)
-                    .foregroundStyle(.black)
+                    .font(.custom(MyFont.font, size: 20)).bold()
+                    .foregroundStyle(.white)
                     .hSpacing(.center)
                     .padding(.vertical, 8)
-                    .background(.white)
-                    .cornerRadius(20)
+                    .background(Color("TodoColor2"))
             })
         }
         .padding(15)
+        .background(Color("BackgroundColor"))
     }
     
 }

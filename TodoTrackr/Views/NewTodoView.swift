@@ -20,6 +20,8 @@ struct NewTask: View {
     
     var categories: FetchedResults<Categorie>
     
+    @EnvironmentObject var dataController: DataManager
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
             Button(action: {
@@ -33,7 +35,7 @@ struct NewTask: View {
             
             VStack(alignment: .leading, spacing: 8, content: {
                 Text("Todo Title")
-                    .font(.caption)
+                    .font(.custom(MyFont.font, size: 12))
                     .foregroundStyle(.gray)
                 
                 TextField("Title", text: $todoTitle)
@@ -42,7 +44,7 @@ struct NewTask: View {
                     .background(.black.shadow(.drop(color: .white.opacity(0.25), radius: 2)), in: .rect(cornerRadius: 10))
                 
                 Text("Todo Caption")
-                    .font(.caption)
+                    .font(.custom(MyFont.font, size: 12))
                     .foregroundStyle(.gray)
                 
                 TextField("Caption", text: $todoCaption, axis: .vertical)
@@ -53,7 +55,9 @@ struct NewTask: View {
                     Picker("Category", selection: $selectedCategory) {
                         ForEach(categories, id: \.self) { category in
                             Text(category.title ?? "")
+                                .font(.custom(MyFont.font, size: 18))
                                 .tag(category.title ?? "")
+                                
                         }
                     }
                     .pickerStyle(.wheel)
@@ -61,76 +65,60 @@ struct NewTask: View {
             .padding(.top, 5)
             
             HStack(spacing: 12) {
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("Task Date")
-                        .font(.caption)
+                VStack(alignment: .center, spacing: 8) {
+                    Text("Todo Date")
+                        .font(.custom(MyFont.font, size: 12))
                         .foregroundStyle(.gray)
                     
                     DatePicker("", selection: $todoDate)
                         .datePickerStyle(.compact)
                         .scaleEffect(0.9, anchor: .leading)
+                        .font(.custom(MyFont.font, size: 18))
                 }
                 .padding(.top, 5)
-                .padding(.trailing, -15)
-                
-                
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("Task Color")
-                        .font(.caption)
-                        .foregroundStyle(.gray)
-                    
-                    let colors: [String] = [
-                        "#FFFF00", "#0000FF", "#00FF00", "#800080"
-                    ]
-                    
-                    HStack(spacing: 0) {
-                        ForEach(colors, id: \.self) { color in
-                            Circle()
-                                .fill(Color(hex: color))
-                                .frame(width: 20, height: 20)
-                                .background(content: {
-                                    Circle()
-                                        .stroke(lineWidth: 2)
-                                        .opacity(todoColor == color ? 1 : 0)
-                                })
-                                .hSpacing(.center)
-                                .contentShape(.rect)
-                                .onTapGesture {
-                                    withAnimation(.snappy) {
-                                        todoColor = color
-                                    }
-                                }
-                        }
-                    }
-                }
-                .padding(.top, 5)
+                .padding(.trailing, 20)
             }
             Spacer(minLength: 0)
             
             Button(action: {
+                print("here: " + (categories[0].title ?? "") + " == " + selectedCategory)
                 for i in categories.indices {
                     if (categories[i].title ?? "") == selectedCategory {
+                        print("before")
                         let newTodo = Todo(context: moc)
+                        newTodo.id = UUID()
                         newTodo.title = todoTitle
                         newTodo.caption = todoCaption
                         newTodo.date = todoDate
                         newTodo.tint = todoColor
+                        newTodo.isCompleted = false
                         categories[i].addToTodos(newTodo)
                         try? moc.save()
+                        print("here")
+                        print(dataController.getTodos(from: categories[i]))
                     }
                 }
                 dismiss()
+                
             }, label: {
-                Text("Create Task")
-                    .font(.title3)
+                Text("Create Todo")
+                    .font(.custom(MyFont.font, size: 24))
                     .fontWeight(.semibold)
                     .hSpacing(.center)
                     .padding(.vertical, 12)
-                    .background(todoColor == "#000000" ? Color(hex:"#111111") : Color(hex: todoColor), in: .rect(cornerRadius: 10))
+                    .foregroundColor(.white)
+                    .background(Color("TodoColor2"))
+                    .cornerRadius(20)
             })
             .opacity(todoTitle == "" ? 0.5 : 1)
         }
+        .onAppear {
+            if categories.count > 0 {
+                selectedCategory = categories[0].title ?? ""
+            }
+        }
         .padding(15)
+        .background(Color("BackgroundColor"))
     }
 }
 

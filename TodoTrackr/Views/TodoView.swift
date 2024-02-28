@@ -28,7 +28,7 @@ struct TodoView: View {
     var body: some View {
         HStack(alignment: .center, spacing: 15) {
             Circle()
-                .fill(todo.isCompleted ? .green : .black)
+                .fill(todo.isCompleted ? .clear : Color("BackgroundColor"))
                 .frame(width: 22, height: 22)
                 .overlay {
                     Image(systemName: todo.isCompleted ? "checkmark" : "circle")
@@ -46,7 +46,8 @@ struct TodoView: View {
             VStack(alignment: .leading, spacing: 0) {
                 HStack {
                     Text(todo.title ?? "")
-                        .font(.system(size: 20, weight: .semibold))
+                        .font(.custom(MyFont.font, size: 20)).bold()
+                        
                     
                     Spacer()
                     
@@ -54,32 +55,31 @@ struct TodoView: View {
                         Label("\((todo.date ?? Date()).format("MMM dd, yyyy"))", systemImage: "calendar")
                         Label("\((todo.date ?? Date()).format("HH:mm"))", systemImage: "clock")
                     }
-                    .font(.system(size: 13))
-                    
+                    .font(.custom(MyFont.font, size: 13))
                 }
                 .hSpacing(.leading)
                 .padding(.bottom, todo.caption == "" ? 0 : 3)
                 
                 if todo.caption != "" {
                     Text(todo.caption ?? "")
-                        .font(.system(size: 15))
+                        .font(.custom(MyFont.font, size: 15))
                 }
             }
             .frame(maxWidth: .infinity)
             .padding()
-            .background(Color(hex: todo.tint ?? "").opacity(0.7).brightness(0.15))
+            .background(Color("TodoColor2"))
             .cornerRadius(20)
             .overlay(
                             RoundedRectangle(cornerRadius: 20)
-                                .stroke(Color.white.opacity(0.5), lineWidth: 1)
+                                .stroke(Color.white.opacity(0.6), lineWidth: 1.5)
                         )
             
             .contextMenu {
                 
                 Button(action: {
-                    if let index = (categories[categoryIndex].todos?.allObjects as! [Todo]).firstIndex(where: {$0.title == todo.title}) {
+                    if let index = (categories[Int(category.id)].todos?.allObjects as! [Todo]).firstIndex(where: {$0.title == todo.title}) {
                         self.indexTodoToEdit = index
-                        self.indexCategoryToEdit = categoryIndex
+                        self.indexCategoryToEdit = Int(category.id)
                     }
                     editTodo.toggle()
 
@@ -100,7 +100,7 @@ struct TodoView: View {
         }
         .padding(.horizontal)
         .onAppear {
-            if let index = categories.firstIndex(where: { $0.id == category.id }) {
+            if let index = categories.firstIndex(where: { $0.title == category.title }) {
                     // Remove the task from the array
                     categoryIndex = index
                 }

@@ -19,6 +19,12 @@
 		9544937B2B8D7FF90094CF32 /* EditTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9544937A2B8D7FF90094CF32 /* EditTodoView.swift */; };
 		9544937E2B8D80350094CF32 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9544937C2B8D80350094CF32 /* Model.xcdatamodeld */; };
 		954493802B8D81760094CF32 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9544937F2B8D81760094CF32 /* README.md */; };
+		9566F2002B8EB60D00F3D4F0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9566F1FF2B8EB60D00F3D4F0 /* SettingsView.swift */; };
+		9566F2032B8EB91200F3D4F0 /* Categorie+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9566F2012B8EB91200F3D4F0 /* Categorie+CoreDataClass.swift */; };
+		9566F2042B8EB91200F3D4F0 /* Categorie+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9566F2022B8EB91200F3D4F0 /* Categorie+CoreDataProperties.swift */; };
+		9566F2072B8EBFA200F3D4F0 /* Todo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9566F2052B8EBFA200F3D4F0 /* Todo+CoreDataClass.swift */; };
+		9566F2082B8EBFA200F3D4F0 /* Todo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9566F2062B8EBFA200F3D4F0 /* Todo+CoreDataProperties.swift */; };
+		95CAB3932B8E756200ECF1EC /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CAB3922B8E756200ECF1EC /* Font.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +41,13 @@
 		9544937A2B8D7FF90094CF32 /* EditTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTodoView.swift; sourceTree = "<group>"; };
 		9544937D2B8D80350094CF32 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		9544937F2B8D81760094CF32 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		9566F1FF2B8EB60D00F3D4F0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		9566F2012B8EB91200F3D4F0 /* Categorie+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Categorie+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9566F2022B8EB91200F3D4F0 /* Categorie+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Categorie+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9566F2052B8EBFA200F3D4F0 /* Todo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Todo+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9566F2062B8EBFA200F3D4F0 /* Todo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Todo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		95CAB3912B8E752200ECF1EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		95CAB3922B8E756200ECF1EC /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +69,7 @@
 				954493742B8D7FC60094CF32 /* NewTodoView.swift */,
 				9544937A2B8D7FF90094CF32 /* EditTodoView.swift */,
 				954493642B8D7F760094CF32 /* MainView.swift */,
+				9566F1FF2B8EB60D00F3D4F0 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -63,6 +77,10 @@
 		954493562B8D7F760094CF32 = {
 			isa = PBXGroup;
 			children = (
+				9566F2052B8EBFA200F3D4F0 /* Todo+CoreDataClass.swift */,
+				9566F2062B8EBFA200F3D4F0 /* Todo+CoreDataProperties.swift */,
+				9566F2012B8EB91200F3D4F0 /* Categorie+CoreDataClass.swift */,
+				9566F2022B8EB91200F3D4F0 /* Categorie+CoreDataProperties.swift */,
 				9544937F2B8D81760094CF32 /* README.md */,
 				954493612B8D7F760094CF32 /* TodoTrackr */,
 				954493602B8D7F760094CF32 /* Products */,
@@ -80,6 +98,8 @@
 		954493612B8D7F760094CF32 /* TodoTrackr */ = {
 			isa = PBXGroup;
 			children = (
+				95CAB3912B8E752200ECF1EC /* Info.plist */,
+				95CAB3922B8E756200ECF1EC /* Font.swift */,
 				951AA6B02B8E13C9007CFFB4 /* Views */,
 				9544937C2B8D80350094CF32 /* Model.xcdatamodeld */,
 				954493782B8D7FE80094CF32 /* Extensions.swift */,
@@ -171,7 +191,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				954493712B8D7FA50094CF32 /* TodoView.swift in Sources */,
+				9566F2072B8EBFA200F3D4F0 /* Todo+CoreDataClass.swift in Sources */,
 				954493732B8D7FB70094CF32 /* DataManager.swift in Sources */,
+				95CAB3932B8E756200ECF1EC /* Font.swift in Sources */,
+				9566F2032B8EB91200F3D4F0 /* Categorie+CoreDataClass.swift in Sources */,
 				954493652B8D7F760094CF32 /* MainView.swift in Sources */,
 				954493632B8D7F760094CF32 /* TodoTrackrApp.swift in Sources */,
 				954493772B8D7FD80094CF32 /* NewCategorieView.swift in Sources */,
@@ -179,6 +202,9 @@
 				9544937B2B8D7FF90094CF32 /* EditTodoView.swift in Sources */,
 				954493752B8D7FC60094CF32 /* NewTodoView.swift in Sources */,
 				954493792B8D7FE80094CF32 /* Extensions.swift in Sources */,
+				9566F2042B8EB91200F3D4F0 /* Categorie+CoreDataProperties.swift in Sources */,
+				9566F2002B8EB60D00F3D4F0 /* SettingsView.swift in Sources */,
+				9566F2082B8EBFA200F3D4F0 /* Todo+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +341,7 @@
 				DEVELOPMENT_TEAM = SJJ26F8CM7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TodoTrackr/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -345,6 +372,7 @@
 				DEVELOPMENT_TEAM = SJJ26F8CM7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TodoTrackr/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
