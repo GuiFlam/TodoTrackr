@@ -64,13 +64,15 @@ struct MainView: View {
                                 TodoView(todo: todo, category: category, indexTodoToEdit: $indexTodoToEdit, indexCategoryToEdit: $indexCategoryToEdit, editTodo: $editTodo, categories: categories)
                                     
                                 }
-                            }
                             Divider()
+                                .overlay(Color.white.opacity(0.8))
+                                .padding(.horizontal)
+                                .padding(.vertical, 7)
+                            }
+                        
+                            
                         }
                     }
-                .onAppear {
-                    //dataController.deleteAllObjects(forEntityName: "Categorie")
-                }
                     .background(Color("BackgroundColor"))
                     .navigationTitle("TodoTrackr")
                     .toolbar {
@@ -103,8 +105,6 @@ struct MainView: View {
                             
                         }
                 })
-                
-            
             .searchable(text: $searchText)
             .font(.custom(MyFont.font, size: 18))
             .tabItem {
@@ -125,10 +125,7 @@ struct MainView: View {
             
         }
         .tint(.white)
-        
-       
     }
-    
 }
 
 #Preview {

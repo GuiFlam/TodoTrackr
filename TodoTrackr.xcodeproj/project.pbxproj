@@ -46,7 +46,7 @@
 		9566F2022B8EB91200F3D4F0 /* Categorie+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Categorie+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9566F2052B8EBFA200F3D4F0 /* Todo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Todo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9566F2062B8EBFA200F3D4F0 /* Todo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Todo+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		95CAB3912B8E752200ECF1EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		95CAB3912B8E752200ECF1EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95CAB3922B8E756200ECF1EC /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,10 +77,6 @@
 		954493562B8D7F760094CF32 = {
 			isa = PBXGroup;
 			children = (
-				9566F2052B8EBFA200F3D4F0 /* Todo+CoreDataClass.swift */,
-				9566F2062B8EBFA200F3D4F0 /* Todo+CoreDataProperties.swift */,
-				9566F2012B8EB91200F3D4F0 /* Categorie+CoreDataClass.swift */,
-				9566F2022B8EB91200F3D4F0 /* Categorie+CoreDataProperties.swift */,
 				9544937F2B8D81760094CF32 /* README.md */,
 				954493612B8D7F760094CF32 /* TodoTrackr */,
 				954493602B8D7F760094CF32 /* Products */,
@@ -98,12 +94,11 @@
 		954493612B8D7F760094CF32 /* TodoTrackr */ = {
 			isa = PBXGroup;
 			children = (
+				95AD42452B8F992800C6B2DB /* CoreData */,
+				951AA6B02B8E13C9007CFFB4 /* Views */,
+				954493782B8D7FE80094CF32 /* Extensions.swift */,
 				95CAB3912B8E752200ECF1EC /* Info.plist */,
 				95CAB3922B8E756200ECF1EC /* Font.swift */,
-				951AA6B02B8E13C9007CFFB4 /* Views */,
-				9544937C2B8D80350094CF32 /* Model.xcdatamodeld */,
-				954493782B8D7FE80094CF32 /* Extensions.swift */,
-				954493722B8D7FB70094CF32 /* DataManager.swift */,
 				954493622B8D7F760094CF32 /* TodoTrackrApp.swift */,
 				954493662B8D7F770094CF32 /* Assets.xcassets */,
 				954493682B8D7F770094CF32 /* Preview Content */,
@@ -117,6 +112,19 @@
 				954493692B8D7F770094CF32 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		95AD42452B8F992800C6B2DB /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				9566F2022B8EB91200F3D4F0 /* Categorie+CoreDataProperties.swift */,
+				9566F2012B8EB91200F3D4F0 /* Categorie+CoreDataClass.swift */,
+				9566F2062B8EBFA200F3D4F0 /* Todo+CoreDataProperties.swift */,
+				9566F2052B8EBFA200F3D4F0 /* Todo+CoreDataClass.swift */,
+				954493722B8D7FB70094CF32 /* DataManager.swift */,
+				9544937C2B8D80350094CF32 /* Model.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

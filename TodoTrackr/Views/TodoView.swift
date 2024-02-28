@@ -48,7 +48,6 @@ struct TodoView: View {
                     Text(todo.title ?? "")
                         .font(.custom(MyFont.font, size: 20)).bold()
                         
-                    
                     Spacer()
                     
                     VStack(alignment: .trailing, spacing: 5) {
