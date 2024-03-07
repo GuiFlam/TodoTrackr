@@ -20,6 +20,7 @@ struct MainView: View {
     
     @FetchRequest(entity: Categorie.entity(), sortDescriptors: [NSSortDescriptor(key: "id", ascending: true)]) private var categories: FetchedResults<Categorie>
     
+    @FetchRequest(entity: Note.entity(), sortDescriptors: [NSSortDescriptor(key: "date", ascending: false)]) private var notes: FetchedResults<Note>
     
     @EnvironmentObject private var dataController: DataManager
     
@@ -47,6 +48,18 @@ struct MainView: View {
                                     .font(.custom(MyFont.font, size: 24)).bold()
                                     .padding(.horizontal, 13)
                                     .padding(.top, 20)
+                                    
+                            }
+                            .contextMenu {
+                                Button(action: {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.55) {
+                                        withAnimation {
+                                            dataController.deleteCategory(category)
+                                        }
+                                    }
+                                }, label: {
+                                    Label("Delete", systemImage: "trash")
+                                })
                             }
                             
                             
@@ -56,9 +69,7 @@ struct MainView: View {
                             var searchResults: [Todo] {
                                     if searchText.isEmpty {
                                         return (category.todos?.allObjects as! [Todo]).sorted { (item1, item2) -> Bool in
-                                            let timeDifference1 = (item1.date ?? Date()).timeIntervalSinceNow
-                                            let timeDifference2 = (item2.date ?? Date()).timeIntervalSinceNow
-                                            return abs(timeDifference1) < abs(timeDifference2)
+                                            return item1.date! < item2.date!
                                         }
                                     } else {
                                         return (category.todos?.allObjects as! [Todo]).filter { ($0.title ?? "").contains(searchText) }
@@ -96,7 +107,14 @@ struct MainView: View {
                         })
                     }
                 }
-                        
+            .onAppear {
+                /*
+                let note = Note(context: moc)
+                note.text = "This is another note"
+                try? moc.save()
+                 */
+                 
+            }
                 .frame(maxHeight: .infinity)
                 .sheet(isPresented: $createNewTodo, content: {
                     NewTask(categories: categories)
@@ -119,16 +137,47 @@ struct MainView: View {
                 Text("Todos")
             }
             NavigationStack {
-                /*
+                
+                
                 List {
                     ForEach(notes, id:\.self) { note in
-                        Text(note.text ?? "")
+                        NavigationLink(destination: {
+                            EditNoteView(note: note)
+                        }, label: {
+                            Text(firstLine(of: note.text ?? ""))
+                            
+                                .font(.custom(MyFont.font, size: 16))
+                        })
+                        .listRowBackground(Color("TodoColor2").opacity(0.8))
+                        .listRowSeparatorTint(.white)
+                        .buttonStyle(PlainButtonStyle())
+                        
                     }
+                    .onDelete(perform: deleteNote)
                 }
-                */
+                .navigationTitle("Notes")
+                .navigationBarTitleDisplayMode(.large)
+                .toolbar {
+                    
+                    ToolbarItem(placement: .topBarTrailing, content: {
+                        NavigationLink(destination: {
+                            NewNoteView()
+                        }, label: {
+                            Image(systemName: "plus")
+                                .imageScale(.large)
+                                .padding(7)
+                                .background(.white)
+                                .clipShape(Circle())
+                                .foregroundColor(.black)
+                        })
+                    })
+                }
+              
                 
+                .scrollContentBackground(.hidden)
+                .background(Color("BackgroundColor"))
+       
             }
-            .background(Color("BackgroundColor"))
             .tabItem {
                 Image(systemName: "list.clipboard")
                 Text("Notes")
@@ -136,7 +185,7 @@ struct MainView: View {
             
             NavigationStack {
                 
-                SettingsView(categories: categories, createNewCategory: $createNewCategory)
+                SettingsView(categories: categories, notes: notes, createNewCategory: $createNewCategory)
                 
                 
             }
@@ -148,6 +197,37 @@ struct MainView: View {
             
         }
         .tint(.white)
+        
+    }
+    private func firstLine(of string: String) -> String {
+            return string.split(separator: "\n").first.map(String.init) ?? ""
+        }
+    
+    private func deleteNote(at offsets: IndexSet) {
+            for index in offsets {
+                let note = notes[index]
+                dataController.deleteNote(note)
+            }
+            do {
+                try moc.save()
+            } catch {
+                print("Error saving managed object context: \(error)")
+            }
+        }
+    private struct CustomButtonStyle: ButtonStyle {
+        let isEnabled: Bool
+        
+        @ViewBuilder
+        func makeBody(configuration: Configuration) -> some View {
+            let backgroundColor = isEnabled ? Color.purple : Color(UIColor.lightGray)
+            let pressedColor = Color.red
+            let background = configuration.isPressed ? pressedColor : backgroundColor
+            
+            configuration.label
+                .foregroundColor(.white)
+                .background(background)
+                .cornerRadius(8)
+        }
     }
 }
 

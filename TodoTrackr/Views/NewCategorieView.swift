@@ -16,18 +16,11 @@ struct NewCategorie: View {
     
     @EnvironmentObject var dataController: DataManager
     
+    var categories: FetchedResults<Categorie>
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
-            Button(action: {
-                dismiss()
-            }, label: {
-                Image(systemName: "xmark.circle.fill")
-                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                    .tint(.red)
-            })
-            .hSpacing(.leading)
             
-            VStack(alignment: .leading, spacing: 8, content: {
                 Text("Category Title")
                     .font(.custom(MyFont.font, size: 12))
                     .foregroundStyle(.gray)
@@ -37,16 +30,14 @@ struct NewCategorie: View {
                     .padding(.vertical, 12)
                     .padding(.horizontal, 15)
                     .background(.black.shadow(.drop(color: .white.opacity(0.25), radius: 2)), in: .rect(cornerRadius: 10))
-            })
-            .padding(.top, 5)
+           
             
             Spacer(minLength: 0)
             
             Button(action: {
-                let id = dataController.getNextCategoryIndex()
                 
                 let categorie = Categorie(context: moc)
-                categorie.id = id
+                categorie.id = categories.last!.id + Int64(1)
                 categorie.title = categoryTitle
                 let array: [Todo] = []
                 categorie.todos = NSSet(array: array)
@@ -56,10 +47,11 @@ struct NewCategorie: View {
                 dismiss()
             }, label: {
                 Text("Create Category")
-                    .font(.custom(MyFont.font, size: 20)).bold()
-                    .foregroundStyle(.white)
+                    .font(.custom(MyFont.font, size: 24))
+                    .fontWeight(.semibold)
                     .hSpacing(.center)
-                    .padding(.vertical, 8)
+                    .padding(.vertical, 12)
+                    .foregroundColor(.white)
                     .background(Color("TodoColor2"))
                     .cornerRadius(20)
             })

@@ -41,14 +41,6 @@ class DataManager: ObservableObject {
         return Array(todos)
     }
     
-    func getNextCategoryIndex() -> Int64 {
-        let categories = getCategories()
-        
-        if categories.count == 0 {
-            return 0
-        }
-        return (categories[categories.count-1].id) + Int64(1)
-    }
     
     func delete(todo: Todo, from category: Categorie) {
             guard let todos = category.todos as? Set<Todo> else {
@@ -120,6 +112,16 @@ class DataManager: ObservableObject {
             
             // Delete the category itself
             context.delete(category)
+
+            // Save changes to the managed object context
+            saveContext()
+    }
+    
+    func deleteNote(_ note: Note) {
+            let context = container.viewContext
+            
+            // Delete the category itself
+            context.delete(note)
 
             // Save changes to the managed object context
             saveContext()

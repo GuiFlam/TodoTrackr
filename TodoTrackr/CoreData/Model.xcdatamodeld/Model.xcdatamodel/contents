@@ -5,6 +5,10 @@
         <attribute name="title" optional="YES" attributeType="String"/>
         <relationship name="todos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Todo" inverseName="categorie" inverseEntity="Todo"/>
     </entity>
+    <entity name="Note" representedClassName="Note" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="text" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="Todo" representedClassName=".Todo" syncable="YES">
         <attribute name="caption" optional="YES" attributeType="String"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
