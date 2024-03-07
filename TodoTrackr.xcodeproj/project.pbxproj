@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		953E6C3E2B995413001EA3B6 /* Notes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 953E6C3C2B995413001EA3B6 /* Notes.xcdatamodeld */; };
+		953E6C402B99546D001EA3B6 /* NotesDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953E6C3F2B99546D001EA3B6 /* NotesDataManager.swift */; };
+		9540DF542B982DE4006515E7 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9540DF532B982DE4006515E7 /* LoadingView.swift */; };
+		9540DF562B982E13006515E7 /* InitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9540DF552B982E13006515E7 /* InitialView.swift */; };
 		954493632B8D7F760094CF32 /* TodoTrackrApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954493622B8D7F760094CF32 /* TodoTrackrApp.swift */; };
 		954493652B8D7F760094CF32 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954493642B8D7F760094CF32 /* MainView.swift */; };
 		954493672B8D7F770094CF32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 954493662B8D7F770094CF32 /* Assets.xcassets */; };
@@ -28,6 +32,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		953E6C3D2B995413001EA3B6 /* Notes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notes.xcdatamodel; sourceTree = "<group>"; };
+		953E6C3F2B99546D001EA3B6 /* NotesDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesDataManager.swift; sourceTree = "<group>"; };
+		9540DF532B982DE4006515E7 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		9540DF552B982E13006515E7 /* InitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialView.swift; sourceTree = "<group>"; };
 		9544935F2B8D7F760094CF32 /* TodoTrackr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoTrackr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		954493622B8D7F760094CF32 /* TodoTrackrApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTrackrApp.swift; sourceTree = "<group>"; };
 		954493642B8D7F760094CF32 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -70,6 +78,8 @@
 				9544937A2B8D7FF90094CF32 /* EditTodoView.swift */,
 				954493642B8D7F760094CF32 /* MainView.swift */,
 				9566F1FF2B8EB60D00F3D4F0 /* SettingsView.swift */,
+				9540DF532B982DE4006515E7 /* LoadingView.swift */,
+				9540DF552B982E13006515E7 /* InitialView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -121,8 +131,10 @@
 				9566F2012B8EB91200F3D4F0 /* Categorie+CoreDataClass.swift */,
 				9566F2062B8EBFA200F3D4F0 /* Todo+CoreDataProperties.swift */,
 				9566F2052B8EBFA200F3D4F0 /* Todo+CoreDataClass.swift */,
-				954493722B8D7FB70094CF32 /* DataManager.swift */,
 				9544937C2B8D80350094CF32 /* Model.xcdatamodeld */,
+				953E6C3C2B995413001EA3B6 /* Notes.xcdatamodeld */,
+				954493722B8D7FB70094CF32 /* DataManager.swift */,
+				953E6C3F2B99546D001EA3B6 /* NotesDataManager.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -203,9 +215,13 @@
 				954493732B8D7FB70094CF32 /* DataManager.swift in Sources */,
 				95CAB3932B8E756200ECF1EC /* Font.swift in Sources */,
 				9566F2032B8EB91200F3D4F0 /* Categorie+CoreDataClass.swift in Sources */,
+				9540DF542B982DE4006515E7 /* LoadingView.swift in Sources */,
+				9540DF562B982E13006515E7 /* InitialView.swift in Sources */,
+				953E6C3E2B995413001EA3B6 /* Notes.xcdatamodeld in Sources */,
 				954493652B8D7F760094CF32 /* MainView.swift in Sources */,
 				954493632B8D7F760094CF32 /* TodoTrackrApp.swift in Sources */,
 				954493772B8D7FD80094CF32 /* NewCategorieView.swift in Sources */,
+				953E6C402B99546D001EA3B6 /* NotesDataManager.swift in Sources */,
 				9544937E2B8D80350094CF32 /* Model.xcdatamodeld in Sources */,
 				9544937B2B8D7FF90094CF32 /* EditTodoView.swift in Sources */,
 				954493752B8D7FC60094CF32 /* NewTodoView.swift in Sources */,
@@ -424,6 +440,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		953E6C3C2B995413001EA3B6 /* Notes.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				953E6C3D2B995413001EA3B6 /* Notes.xcdatamodel */,
+			);
+			currentVersion = 953E6C3D2B995413001EA3B6 /* Notes.xcdatamodel */;
+			path = Notes.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		9544937C2B8D80350094CF32 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (

@@ -13,6 +13,7 @@ class DataManager: ObservableObject {
     
     let container = NSPersistentContainer(name: "Model")
     init() {
+        container.persistentStoreDescriptions.first!.setOption(FileProtectionType.complete as NSObject, forKey: NSPersistentStoreFileProtectionKey)
         container.loadPersistentStores { description, error in
             if let error = error {
                 print("Core Data failed to load: \(error.localizedDescription)")
@@ -20,6 +21,7 @@ class DataManager: ObservableObject {
         }
     }
     
+
     func getCategories() -> [Categorie] {
         let request: NSFetchRequest<Categorie> = Categorie.fetchRequest()
         do {

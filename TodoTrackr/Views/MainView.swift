@@ -20,6 +20,7 @@ struct MainView: View {
     
     @FetchRequest(entity: Categorie.entity(), sortDescriptors: [NSSortDescriptor(key: "id", ascending: true)]) private var categories: FetchedResults<Categorie>
     
+    
     @EnvironmentObject private var dataController: DataManager
     
     
@@ -41,13 +42,17 @@ struct MainView: View {
                     VStack(alignment: .leading) {
                         
                         ForEach(categories, id:\.self) { category in
-                            Text(category.title ?? "")
-                                .font(.custom(MyFont.font, size: 24)).bold()
-                                .padding(.horizontal, 13)
-                                .padding(.top, 20)
+                            HStack {
+                                Text(category.title ?? "")
+                                    .font(.custom(MyFont.font, size: 24)).bold()
+                                    .padding(.horizontal, 13)
+                                    .padding(.top, 20)
+                            }
+                            
                             
                             // This filters the todos for the search results
                             // if the searchText is empty, the todos are sorted according to their date
+                            
                             var searchResults: [Todo] {
                                     if searchText.isEmpty {
                                         return (category.todos?.allObjects as! [Todo]).sorted { (item1, item2) -> Bool in
@@ -111,7 +116,24 @@ struct MainView: View {
                 Image(systemName: "checkmark")
                     .resizable()
                     .frame(width: 10, height: 10)
+                Text("Todos")
             }
+            NavigationStack {
+                /*
+                List {
+                    ForEach(notes, id:\.self) { note in
+                        Text(note.text ?? "")
+                    }
+                }
+                */
+                
+            }
+            .background(Color("BackgroundColor"))
+            .tabItem {
+                Image(systemName: "list.clipboard")
+                Text("Notes")
+            }
+            
             NavigationStack {
                 
                 SettingsView(categories: categories, createNewCategory: $createNewCategory)
@@ -121,6 +143,7 @@ struct MainView: View {
             .background(Color("BackgroundColor"))
             .tabItem {
                 Image(systemName: "gear")
+                Text("Settings")
             }
             
         }
