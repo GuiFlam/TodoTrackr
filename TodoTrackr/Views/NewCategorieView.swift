@@ -37,7 +37,11 @@ struct NewCategorie: View {
             Button(action: {
                 
                 let categorie = Categorie(context: moc)
-                categorie.id = categories.last!.id + Int64(1)
+                if categories.isEmpty {
+                    categorie.id = 0
+                } else {
+                    categorie.id = categories.last!.id + Int64(1)
+                }
                 categorie.title = categoryTitle
                 let array: [Todo] = []
                 categorie.todos = NSSet(array: array)
