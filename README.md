@@ -20,7 +20,11 @@ TodoTrackr leverages CoreData for robust data management, ensuring the reliabili
 
 ### JSON Export & Import
 
-Need to share your task lists or back them up? TodoTrackr has you covered. With CoreData JSON encoding, users can export all app contents to a JSON file effortlessly. This feature ensures data portability and allows for easy integration with other applications or platforms.
+Need to share your task lists or back them up? TodoTrackr has you covered. With CoreData JSON encoding, users can export all app contents to a JSON file effortlessly. This feature ensures data portability and allows for easy integration with other applications or platforms. **When exported, the user needs to choose a password to encrypt the data. The same password is required to decrypt the data.**
+
+### Note taking
+
+TodoTrackr also allows users to take notes. Notes can be added, edited, and deleted. This works the same as the native Notes app on iOS.
 
 ## Screenshots
 
@@ -39,7 +43,24 @@ Need to share your task lists or back them up? TodoTrackr has you covered. With 
   <img src="Images/edit.png" alt="Add Image" width="300">
 </p>
 
-### Files converted to JSON
+### Notes View
 <p align="center">
-  <img src="Images/json.png" alt="Add Image" width="300">
+  <img src="Images/notes.png" alt="Notes image" width="300">
+</p>
+
+### Edit A Note
+<p align="center">
+  <img src="Images/editNote.png" alt="Edit Note" width="300">
+</p>
+
+### Encrypt Todos Or Notes
+
+To encrypt, you need to choose a password. To decrypt, you need to enter the password you used to encrypt the data!
+<p align="center">
+  <img src="Images/encrypt.png" alt="Encrypt" width="300">
+</p>
+
+### Encrypted JSON Data
+<p align="center">
+  <img src="Images/encrypted.png" alt="Encrypted" width="300">
 </p>
