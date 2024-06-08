@@ -22,6 +22,7 @@ extension Todo {
     @NSManaged public var isCompleted: Bool
     @NSManaged public var tint: String?
     @NSManaged public var title: String?
+    @NSManaged public var categorie: Categorie?
 
 }
 

@@ -45,8 +45,7 @@ struct NewTask: View {
             if selection == "Todo" {
                 
                 VStack(alignment: .leading, spacing: 8, content: {
-                    
-                    
+                     
                     Text("Todo Title")
                         .font(.custom(MyFont.font, size: 12))
                         .foregroundStyle(.gray)
@@ -65,15 +64,15 @@ struct NewTask: View {
                         .padding(.horizontal, 15)
                         .background(.black.shadow(.drop(color: .white.opacity(0.25), radius: 2)), in: .rect(cornerRadius: 10))
                     
-                        Picker("Category", selection: $selectedCategory) {
-                            ForEach(categories, id: \.self) { category in
-                                Text(category.title ?? "")
-                                    .font(.custom(MyFont.font, size: 18))
-                                    .tag(category.title ?? "")
-                                    
-                            }
+                    Picker("Category", selection: $selectedCategory) {
+                        ForEach(categories, id: \.self) { category in
+                            Text(category.title ?? "")
+                                .font(.custom(MyFont.font, size: 18))
+                                .tag(category.title ?? "")
+                            
                         }
-                        .pickerStyle(.wheel)
+                    }
+                    .pickerStyle(.wheel)
                 })
                 .padding(.top, 5)
                 
@@ -105,6 +104,7 @@ struct NewTask: View {
                             newTodo.date = todoDate
                             newTodo.tint = todoColor
                             newTodo.isCompleted = false
+                            newTodo.categorie = categories[i]
                             categories[i].addToTodos(newTodo)
                             try? moc.save()
                             print("here")

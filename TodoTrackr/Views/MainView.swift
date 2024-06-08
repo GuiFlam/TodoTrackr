@@ -118,7 +118,7 @@ struct MainView: View {
                 .frame(maxHeight: .infinity)
                 .sheet(isPresented: $createNewTodo, content: {
                     NewTask(categories: categories)
-                        .presentationDetents([.height(600)])
+                        .presentationDetents([.height(800)])
                 })
                 .sheet(isPresented: $editTodo, content: {
                     EditTodo(categories: categories, indexTodoToEdit: $indexTodoToEdit, indexCategoryToEdit: $indexCategoryToEdit)
@@ -136,6 +136,15 @@ struct MainView: View {
                     .frame(width: 10, height: 10)
                 Text("Todos")
             }
+            
+            NavigationStack {
+                CalendarView(categories: categories)
+            }
+            .tabItem {
+                Image(systemName: "calendar")
+                Text("Calendar")
+            }
+            
             NavigationStack {
                 
                 
@@ -182,6 +191,17 @@ struct MainView: View {
                 Image(systemName: "list.clipboard")
                 Text("Notes")
             }
+            
+            
+            /*
+            NavigationStack {
+                PortfolioView()
+            }
+            .tabItem {
+                Image(systemName: "chart.xyaxis.line")
+                Text("Portfolio")
+            }
+            */
             
             NavigationStack {
                 

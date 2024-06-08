@@ -35,6 +35,8 @@ struct SettingsView: View {
     @State var showAlert = false
     @State var showSheet = false
     
+    @AppStorage("coinIds") var coinIds: Data?
+    
     
     var body: some View {
         ZStack {
@@ -79,6 +81,8 @@ struct SettingsView: View {
                             .font(.custom(MyFont.font, size: 16))
                     })
                     .listRowBackground(Color("TodoColor2").opacity(0.8))
+                    
+                    
                 })
                 .listRowSeparatorTint(.white)
                 .foregroundColor(.white)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		953025022BBC51EA00CED7DA /* CoinTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953025012BBC51EA00CED7DA /* CoinTransactionView.swift */; };
 		953E6C432B995FDB001EA3B6 /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953E6C412B995FDB001EA3B6 /* Note+CoreDataClass.swift */; };
 		953E6C442B995FDB001EA3B6 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953E6C422B995FDB001EA3B6 /* Note+CoreDataProperties.swift */; };
 		9540DF542B982DE4006515E7 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9540DF532B982DE4006515E7 /* LoadingView.swift */; };
@@ -25,15 +26,19 @@
 		954493802B8D81760094CF32 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9544937F2B8D81760094CF32 /* README.md */; };
 		9548DDF72B9988AD00470BED /* NewNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9548DDF62B9988AD00470BED /* NewNoteView.swift */; };
 		9548DDF92B998A7800470BED /* EditNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9548DDF82B998A7800470BED /* EditNoteView.swift */; };
+		9549F4BF2BBAF1E00092F762 /* PortfolioVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9549F4BE2BBAF1E00092F762 /* PortfolioVIew.swift */; };
 		9566F2002B8EB60D00F3D4F0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9566F1FF2B8EB60D00F3D4F0 /* SettingsView.swift */; };
 		9566F2032B8EB91200F3D4F0 /* Categorie+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9566F2012B8EB91200F3D4F0 /* Categorie+CoreDataClass.swift */; };
 		9566F2042B8EB91200F3D4F0 /* Categorie+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9566F2022B8EB91200F3D4F0 /* Categorie+CoreDataProperties.swift */; };
 		9566F2072B8EBFA200F3D4F0 /* Todo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9566F2052B8EBFA200F3D4F0 /* Todo+CoreDataClass.swift */; };
 		9566F2082B8EBFA200F3D4F0 /* Todo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9566F2062B8EBFA200F3D4F0 /* Todo+CoreDataProperties.swift */; };
 		95CAB3932B8E756200ECF1EC /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CAB3922B8E756200ECF1EC /* Font.swift */; };
+		95E3809A2BDEEDD80062214D /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E380992BDEEDD80062214D /* CalendarView.swift */; };
+		95E3809C2BDEEFFF0062214D /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E3809B2BDEEFFF0062214D /* DateValue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		953025012BBC51EA00CED7DA /* CoinTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTransactionView.swift; sourceTree = "<group>"; };
 		953E6C412B995FDB001EA3B6 /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
 		953E6C422B995FDB001EA3B6 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9540DF532B982DE4006515E7 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -53,6 +58,7 @@
 		9544937F2B8D81760094CF32 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9548DDF62B9988AD00470BED /* NewNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNoteView.swift; sourceTree = "<group>"; };
 		9548DDF82B998A7800470BED /* EditNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteView.swift; sourceTree = "<group>"; };
+		9549F4BE2BBAF1E00092F762 /* PortfolioVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioVIew.swift; sourceTree = "<group>"; };
 		9566F1FF2B8EB60D00F3D4F0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		9566F2012B8EB91200F3D4F0 /* Categorie+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Categorie+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9566F2022B8EB91200F3D4F0 /* Categorie+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Categorie+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -60,6 +66,8 @@
 		9566F2062B8EBFA200F3D4F0 /* Todo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Todo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		95CAB3912B8E752200ECF1EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95CAB3922B8E756200ECF1EC /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		95E380992BDEEDD80062214D /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		95E3809B2BDEEFFF0062214D /* DateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +94,9 @@
 				9540DF552B982E13006515E7 /* InitialView.swift */,
 				9548DDF62B9988AD00470BED /* NewNoteView.swift */,
 				9548DDF82B998A7800470BED /* EditNoteView.swift */,
+				9549F4BE2BBAF1E00092F762 /* PortfolioVIew.swift */,
+				953025012BBC51EA00CED7DA /* CoinTransactionView.swift */,
+				95E380992BDEEDD80062214D /* CalendarView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -118,6 +129,7 @@
 				954493622B8D7F760094CF32 /* TodoTrackrApp.swift */,
 				954493662B8D7F770094CF32 /* Assets.xcassets */,
 				954493682B8D7F770094CF32 /* Preview Content */,
+				95E3809B2BDEEFFF0062214D /* DateValue.swift */,
 			);
 			path = TodoTrackr;
 			sourceTree = "<group>";
@@ -218,10 +230,13 @@
 			files = (
 				954493712B8D7FA50094CF32 /* TodoView.swift in Sources */,
 				9566F2072B8EBFA200F3D4F0 /* Todo+CoreDataClass.swift in Sources */,
+				95E3809A2BDEEDD80062214D /* CalendarView.swift in Sources */,
 				954493732B8D7FB70094CF32 /* DataManager.swift in Sources */,
+				9549F4BF2BBAF1E00092F762 /* PortfolioVIew.swift in Sources */,
 				9548DDF72B9988AD00470BED /* NewNoteView.swift in Sources */,
 				95CAB3932B8E756200ECF1EC /* Font.swift in Sources */,
 				9566F2032B8EB91200F3D4F0 /* Categorie+CoreDataClass.swift in Sources */,
+				953025022BBC51EA00CED7DA /* CoinTransactionView.swift in Sources */,
 				9540DF542B982DE4006515E7 /* LoadingView.swift in Sources */,
 				9540DF562B982E13006515E7 /* InitialView.swift in Sources */,
 				954493652B8D7F760094CF32 /* MainView.swift in Sources */,
@@ -232,6 +247,7 @@
 				9548DDF92B998A7800470BED /* EditNoteView.swift in Sources */,
 				953E6C442B995FDB001EA3B6 /* Note+CoreDataProperties.swift in Sources */,
 				954493752B8D7FC60094CF32 /* NewTodoView.swift in Sources */,
+				95E3809C2BDEEFFF0062214D /* DateValue.swift in Sources */,
 				954493792B8D7FE80094CF32 /* Extensions.swift in Sources */,
 				9566F2042B8EB91200F3D4F0 /* Categorie+CoreDataProperties.swift in Sources */,
 				953E6C432B995FDB001EA3B6 /* Note+CoreDataClass.swift in Sources */,
@@ -367,6 +383,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TodoTrackr/Preview Content\"";
@@ -374,6 +391,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodoTrackr/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Please authenticate to unlock the application.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -385,8 +403,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = gui.TodoTrackr;
+				PRODUCT_BUNDLE_IDENTIFIER = gui12312312312.TodoTrackr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -398,6 +417,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TodoTrackr/Preview Content\"";
@@ -405,6 +425,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodoTrackr/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Please authenticate to unlock the application.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -416,8 +437,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = gui.TodoTrackr;
+				PRODUCT_BUNDLE_IDENTIFIER = gui12312312312.TodoTrackr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

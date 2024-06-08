@@ -76,11 +76,16 @@ struct TodoView: View {
             .contextMenu {
                 
                 Button(action: {
-                    if let index = (categories[Int(category.id)].todos?.allObjects as! [Todo]).firstIndex(where: {$0.title == todo.title}) {
-                        self.indexTodoToEdit = index
-                        self.indexCategoryToEdit = Int(category.id)
+                    
+                    if let categoryIndex = categories.firstIndex(where: { $0.title == category.title }) {
+                        print("Category index: \(categoryIndex)")
+                        if let index = (categories[categoryIndex].todos?.allObjects as! [Todo]).firstIndex(where: {$0.title == todo.title}) {
+                            self.indexTodoToEdit = index
+                            self.indexCategoryToEdit = categoryIndex
+                        }
+                        editTodo.toggle()
                     }
-                    editTodo.toggle()
+                    
 
                 }, label: {
                     Label("Edit", systemImage: "pencil")

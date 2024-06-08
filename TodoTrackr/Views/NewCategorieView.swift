@@ -31,11 +31,9 @@ struct NewCategorie: View {
                     .padding(.horizontal, 15)
                     .background(.black.shadow(.drop(color: .white.opacity(0.25), radius: 2)), in: .rect(cornerRadius: 10))
            
-            
             Spacer(minLength: 0)
             
             Button(action: {
-                
                 let categorie = Categorie(context: moc)
                 if categories.isEmpty {
                     categorie.id = 0
