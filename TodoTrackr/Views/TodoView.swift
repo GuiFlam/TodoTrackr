@@ -66,7 +66,12 @@ struct TodoView: View {
             }
             .frame(maxWidth: .infinity)
             .padding()
-            .background(Color("TodoColor2"))
+            .background(LinearGradient(
+                gradient: Gradient(colors: [Color("TodoColor2"), Color("TodoColor1")]),
+                startPoint: .top,
+                endPoint: .bottomTrailing
+            )
+            .edgesIgnoringSafeArea(.all))
             .cornerRadius(20)
             .overlay(
                             RoundedRectangle(cornerRadius: 20)

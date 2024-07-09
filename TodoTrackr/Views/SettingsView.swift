@@ -51,7 +51,7 @@ struct SettingsView: View {
                         Text("Export Todos")
                             .font(.custom(MyFont.font, size: 16))
                     })
-                    .listRowBackground(Color("TodoColor2").opacity(0.8))
+                    .listRowBackground(Color("TodoColor1").opacity(0.8))
                     Button(action: {
                         isImportingTodos = true
                         isImportingNotes = false
@@ -61,7 +61,7 @@ struct SettingsView: View {
                         Text("Import Todos")
                             .font(.custom(MyFont.font, size: 16))
                     })
-                    .listRowBackground(Color("TodoColor2").opacity(0.8))
+                    .listRowBackground(Color("TodoColor1").opacity(0.8))
                     Button(action: {
                         isSubmittingPasswordEncryptionNotes = true
                         self.showSheet = true
@@ -70,7 +70,7 @@ struct SettingsView: View {
                         Text("Export Notes")
                             .font(.custom(MyFont.font, size: 16))
                     })
-                    .listRowBackground(Color("TodoColor2").opacity(0.8))
+                    .listRowBackground(Color("TodoColor1").opacity(0.8))
                     Button(action: {
                         isImportingNotes = true
                         isImportingTodos = false
@@ -80,7 +80,7 @@ struct SettingsView: View {
                         Text("Import Notes")
                             .font(.custom(MyFont.font, size: 16))
                     })
-                    .listRowBackground(Color("TodoColor2").opacity(0.8))
+                    .listRowBackground(Color("TodoColor1").opacity(0.8))
                     
                     
                 })

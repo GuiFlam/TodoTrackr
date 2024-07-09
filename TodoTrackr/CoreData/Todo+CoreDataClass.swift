@@ -38,7 +38,6 @@ public class Todo: NSManagedObject, Decodable, Encodable {
         isCompleted = try container.decode(Bool.self, forKey: .isCompleted)
         tint = try container.decodeIfPresent(String.self, forKey: .tint)
         title = try container.decodeIfPresent(String.self, forKey: .title)
-        categorie = try container.decodeIfPresent(Categorie.self, forKey: .categorie)
         // Decode other properties
     }
     
@@ -50,7 +49,6 @@ public class Todo: NSManagedObject, Decodable, Encodable {
         try values.encode(date, forKey: .date)
         try values.encode(isCompleted, forKey: .isCompleted)
         try values.encode(tint, forKey: .tint)
-        try values.encode(categorie, forKey: .categorie)
     }
     
     // Define coding keys if needed

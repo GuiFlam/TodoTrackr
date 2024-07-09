@@ -157,7 +157,7 @@ struct MainView: View {
                             
                                 .font(.custom(MyFont.font, size: 16))
                         })
-                        .listRowBackground(Color("TodoColor2").opacity(0.8))
+                        .listRowBackground(Color("TodoColor1").opacity(0.8))
                         .listRowSeparatorTint(.white)
                         .buttonStyle(PlainButtonStyle())
                         

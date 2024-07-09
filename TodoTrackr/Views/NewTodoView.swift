@@ -67,7 +67,7 @@ struct NewTask: View {
                     Picker("Category", selection: $selectedCategory) {
                         ForEach(categories, id: \.self) { category in
                             Text(category.title ?? "")
-                                .font(.custom(MyFont.font, size: 18))
+                                .font(.custom(MyFont.font, size: 16))
                                 .tag(category.title ?? "")
                             
                         }
@@ -84,7 +84,7 @@ struct NewTask: View {
                         
                         DatePicker("", selection: $todoDate)
                             .datePickerStyle(.compact)
-                            .scaleEffect(0.9, anchor: .leading)
+                            .scaleEffect(0.7, anchor: .leading)
                             .font(.custom(MyFont.font, size: 18))
                     }
                     .padding(.top, 5)
@@ -104,7 +104,6 @@ struct NewTask: View {
                             newTodo.date = todoDate
                             newTodo.tint = todoColor
                             newTodo.isCompleted = false
-                            newTodo.categorie = categories[i]
                             categories[i].addToTodos(newTodo)
                             try? moc.save()
                             print("here")
@@ -120,7 +119,7 @@ struct NewTask: View {
                         .hSpacing(.center)
                         .padding(.vertical, 12)
                         .foregroundColor(.white)
-                        .background(Color("TodoColor2"))
+                        .background(Color("TodoColor1"))
                         .cornerRadius(20)
                 })
                 .opacity(todoTitle == "" ? 0.5 : 1)

@@ -88,7 +88,7 @@ struct CalendarView: View {
                                         }
                                         .overlay(
                                             RoundedRectangle(cornerRadius: 20)
-                                                .stroke(Color("TodoColor2"), lineWidth: 1.5)
+                                                .stroke(Color("TodoColor1"), lineWidth: 1.5)
                                                 .frame(width: 45, height: 65)
                                         )
                                         
@@ -111,7 +111,7 @@ struct CalendarView: View {
                                         }
                                         .overlay(
                                             RoundedRectangle(cornerRadius: 20)
-                                                .stroke(Color("TodoColor2"), lineWidth: 1.5)
+                                                .stroke(Color("TodoColor1"), lineWidth: 1.5)
                                                 .frame(width: 45, height: 65)
                                         )
                                     }
@@ -154,7 +154,11 @@ struct CalendarView: View {
                             }
                             .frame(width: 275, height: 65)
                             .padding()
-                            .background(Color("TodoColor2"))
+                            .background(LinearGradient(
+                                gradient: Gradient(colors: [Color("TodoColor2"), Color("TodoColor1")]),
+                                startPoint: .top,
+                                endPoint: .bottomTrailing
+                            ))
                             .cornerRadius(20)
                             .overlay(
                                             RoundedRectangle(cornerRadius: 20)
@@ -210,29 +214,45 @@ struct CalendarView: View {
         return calendar.date(byAdding: .month, value: currentMonth, to: Date())!
     }
     
+
     func extractDate() -> [DateValue] {
-        
         let calendar = Calendar.current
-        guard let currentMonth = Calendar.current.date(byAdding: .month, value: currentMonth, to: Date()) else {
+        var days = [DateValue]()
+
+        // Get the start of the current month with the specified offset
+        guard let startOfMonth = calendar.date(byAdding: .month, value: currentMonth, to: calendar.date(from: calendar.dateComponents([.year, .month], from: Date()))!) else {
             return []
         }
-        
-        var days =  currentMonth.getAllDates().compactMap {
-            date -> DateValue in
-            
-            let day = calendar.component(.day, from: date)
-            
-            return DateValue(date: date, day: day)
+
+        // Get the range of days in the specified month
+        guard let monthRange = calendar.range(of: .day, in: .month, for: startOfMonth) else {
+            return []
         }
-        
-        let firstWeekday = calendar.component(.weekday, from: days.first?.date ?? Date())
-        
-        for _ in 0..<(firstWeekday - 1) {
+
+        // Iterate through all days of the specified month
+        for day in monthRange {
+            guard let date = calendar.date(byAdding: .day, value: day - 1, to: startOfMonth) else {
+                continue
+            }
+            days.append(DateValue(date: date, day: day))
+        }
+
+        // Determine the weekday of the first day of the month
+        guard let firstDay = days.first?.date,
+              let firstWeekday = calendar.dateComponents([.weekday], from: firstDay).weekday else {
+            return days
+        }
+
+        // Insert placeholder days before the first day of the month
+        let daysToInsert = firstWeekday - calendar.firstWeekday
+        for _ in 0..<daysToInsert {
             days.insert(DateValue(date: Date(), day: -1), at: 0)
         }
-        
+
         return days
     }
+
+
 }
 
 extension Date {
