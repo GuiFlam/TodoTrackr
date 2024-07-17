@@ -6,7 +6,7 @@ TodoTrackr is a comprehensive task management solution designed to streamline yo
 
 ## Installation
 
-Since this application is not available on the App Store, you will need to clone the repository and install the application using the `TodoTrackr.ipa` file. To download the app you will need a sideloading tool like [AltStore](https://altstore.io/).
+Since this application is not available on the App Store, you will need to clone the repository and download it using XCode, or install the application using the `TodoTrackr.ipa` file. To download the app you will need a sideloading tool like [AltStore](https://altstore.io/).
 
 ## Screenshots
 
