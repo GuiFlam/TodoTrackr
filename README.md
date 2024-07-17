@@ -8,40 +8,40 @@ TodoTrackr is a comprehensive task management solution designed to streamline yo
 
 ### Main View
 <p align="center">
-  <img src="Images/main.png" alt="Main Image" width="300">
+  <img src="Images/main.png" alt="Main Image" width="200">
 </p>
 
 ### Add A Todo
 <p align="center">
-  <img src="Images/add.png" alt="Add Image" width="300">
+  <img src="Images/add.png" alt="Add Image" width="200">
 </p>
 
 ### Edit A Todo
 <p align="center">
-  <img src="Images/edit.png" alt="Add Image" width="300">
+  <img src="Images/edit.png" alt="Add Image" width="200">
 </p>
 
 ### Calendar
 <p align="center">
-  <img src="Images/calendar.png" alt="Add Image" width="300">
+  <img src="Images/calendar.png" alt="Add Image" width="200">
 </p>
 
 ### Notes
 <p align="center">
-  <img src="Images/notes.png" alt="Add Image" width="300">
+  <img src="Images/notes.png" alt="Add Image" width="200">
 </p>
 
 ### Note creation/editing
 <p align="center">
-  <img src="Images/edit_note.png" alt="Add Image" width="300">
+  <img src="Images/edit_note.png" alt="Add Image" width="200">
 </p>
 
 ### Password needed to encrypt/decrypt the file
 <p align="center">
-  <img src="Images/password.png" alt="Add Image" width="300">
+  <img src="Images/password.png" alt="Add Image" width="200">
 </p>
 
 ### Files encrypted with AES256
 <p align="center">
-  <img src="Images/encrypted.png" alt="Add Image" width="300">
+  <img src="Images/encrypted.png" alt="Add Image" width="200">
 </p>
