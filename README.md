@@ -2,25 +2,7 @@
 
 ## Description
 
-TodoTrackr is your go-to application for seamless task organization and management. With TodoTrackr, users can effortlessly create custom categories, such as "Courses," "Work Projects," or "Personal Errands," tailoring their task management experience to suit their unique needs.
-
-Here's what sets TodoTrackr apart:
-
-### Custom Categories
-
-Users have the freedom to create personalized categories, allowing for intuitive organization of tasks based on different aspects of their lives or projects.
-
-### Effortless Task Addition
-
-Adding tasks to categories is a breeze. Whether it's jotting down a quick reminder or outlining a detailed to-do list, TodoTrackr ensures that users can capture tasks quickly and efficiently.
-
-### CoreData Integration
-
-TodoTrackr leverages CoreData for robust data management, ensuring the reliability and scalability of your task lists. CoreData's efficient data storage and retrieval mechanisms guarantee a seamless user experience, even with extensive task lists.
-
-### JSON Export & Import
-
-Need to share your task lists or back them up? TodoTrackr has you covered. With CoreData JSON encoding, users can export all app contents to a JSON file effortlessly. This feature ensures data portability and allows for easy integration with other applications or platforms.
+TodoTrackr is a comprehensive task management solution designed to streamline your productivity with essential features. It offers intuitive todo tracking, customizable task categories like "Courses" or "Work Projects," and seamless integration with a calendar for efficient scheduling. The app includes robust note-taking capabilities akin to popular apps, allowing for detailed project notes and idea capture. Security is ensured with 256-bit encryption using a user-determined salt, keeping your data safe. Whether for work, school, or personal use, TodoTrackr ensures you stay organized, focused, and productive with ease.
 
 ## Screenshots
 
@@ -39,7 +21,27 @@ Need to share your task lists or back them up? TodoTrackr has you covered. With 
   <img src="Images/edit.png" alt="Add Image" width="300">
 </p>
 
-### Files converted to JSON
+### Calendar
 <p align="center">
-  <img src="Images/json.png" alt="Add Image" width="300">
+  <img src="Images/calendar.png" alt="Add Image" width="300">
+</p>
+
+### Notes
+<p align="center">
+  <img src="Images/notes.png" alt="Add Image" width="300">
+</p>
+
+### Note creation/editing
+<p align="center">
+  <img src="Images/edit_note.png" alt="Add Image" width="300">
+</p>
+
+### Password needed to encrypt/decrypt the file
+<p align="center">
+  <img src="Images/password.png" alt="Add Image" width="300">
+</p>
+
+### Files encrypted with AES256
+<p align="center">
+  <img src="Images/encrypted.png" alt="Add Image" width="300">
 </p>
