@@ -45,7 +45,7 @@ Since this application is not available on the App Store, you will need to clone
   <img src="Images/password.png" alt="Add Image" width="200">
 </p>
 
-### Files encrypted with AES256
+### Files encrypted with SHA256
 <p align="center">
   <img src="Images/encrypted.png" alt="Add Image" width="200">
 </p>
