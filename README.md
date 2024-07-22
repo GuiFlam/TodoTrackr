@@ -40,7 +40,7 @@ Since this application is not available on the App Store, you will need to clone
   <img src="Images/edit_note.png" alt="Add Image" width="200">
 </p>
 
-### Password needed to encrypt/decrypt the file
+### Password needed to encrypt/decrypt the file (salt)
 <p align="center">
   <img src="Images/password.png" alt="Add Image" width="200">
 </p>
